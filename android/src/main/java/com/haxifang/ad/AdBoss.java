@@ -31,6 +31,7 @@ public class AdBoss {
     public static String appName = "穿山甲媒体APP";
     public static int rewardAmount = 1;
     public static String rewardName = "金币";
+    public static String mediaExtra = "media_extra";
 
     // 头条广告sdk
     public static TTAdManager ttAdManager;
@@ -86,6 +87,10 @@ public class AdBoss {
         is_download_idle = false;
         is_download_active = false;
         is_install = false;
+    }
+
+    public static void initParams() {
+
     }
 
     public static String getRewardResult() {

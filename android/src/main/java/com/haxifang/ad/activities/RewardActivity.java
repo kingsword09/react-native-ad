@@ -51,10 +51,10 @@ public class RewardActivity extends Activity {
                 .setCodeId(codeId)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(1080, 1920)
-                .setRewardName(AdBoss.rewardName) // 奖励的名称
-                .setRewardAmount(AdBoss.rewardAmount) // 奖励的数量
+                // .setRewardName(AdBoss.rewardName) // 奖励的名称
+                // .setRewardAmount(AdBoss.rewardAmount) // 奖励的数量
                 .setUserID(AdBoss.userId)// 用户id,必传参数
-                .setMediaExtra("media_extra") // 附加参数，可选
+                .setMediaExtra(AdBoss.mediaExtra) // 附加参数，可选
                 .setOrientation(TTAdConstant.VERTICAL) // 必填参数，期望视频的播放方向：TTAdConstant.HORIZONTAL 或 TTAdConstant.VERTICAL
                 .build();
 
@@ -146,10 +146,13 @@ public class RewardActivity extends Activity {
             public void onRewardVerify(boolean rewardVerify, int rewardAmount, String rewardName) {
                 if (rewardVerify) {
                     // TToast.show(_this, "验证:成功  数量:" + rewardAmount + " 奖励:" + rewardName, Toast.LENGTH_LONG);
+                    Log.d(TAG, "验证成功  数量:" + rewardAmount + " 奖励:" + rewardName);
+                    AdBoss.is_reward = true;
                 } else {
                     // TToast.show(_this, "头条激励视频验证:" + "失败 ...", Toast.LENGTH_SHORT);
+                    Log.d(TAG, "验证失败");
+                    AdBoss.is_reward = false;
                 }
-                AdBoss.is_reward = true;
             }
 
             @Override

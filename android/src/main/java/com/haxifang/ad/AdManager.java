@@ -53,6 +53,9 @@ public class AdManager extends ReactContextBaseJavaModule {
         if (options.hasKey("reward")) {
             AdBoss.rewardName = options.getString("reward");
         }
+        if (options.hasKey("extra")) {
+            AdBoss.mediaExtra = options.getString("extra");
+        }
 
         // 支持一口气init所有需要的adConfig
         AdBoss.tx_appid = options.hasKey("tx_appid") ? options.getString("tx_appid") : AdBoss.tx_appid;
