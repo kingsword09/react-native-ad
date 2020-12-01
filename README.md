@@ -9,7 +9,7 @@
 ### 安装方法 🔨
 
 ```
-yarn add git+https://github.com/haxibiao/react-native-ad.git
+yarn add git+https://github.com/kingsword09/react-native-ad.git
 ```
 
 ### 文档地址 🍎
