@@ -15,6 +15,11 @@ import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactContext;
 
+import com.youdao.sdk.common.YouDaoAd;
+import com.youdao.sdk.common.YouDaoOptions;
+import com.youdao.sdk.common.YoudaoSDK;
+import com.youdao.sdk.nativeads.YouDaoNative;
+
 /**
  * 管理广告模块的核心对象
  */
@@ -25,6 +30,7 @@ public class AdBoss {
     public static String tt_appid;
     public static String tx_appid; //腾讯
     public static String bd_appid; //百度
+    public static String yd_codeid;//有道
 
     //头条广告init需要传的参数
     public static String userId = "";
@@ -36,6 +42,10 @@ public class AdBoss {
     // 头条广告sdk
     public static TTAdManager ttAdManager;
     public static TTAdNative TTAdSdk;
+
+    // 有道智选sdk
+    public static YDAdmanager ydAdManager;
+    public static YDAdNative YDAdSdk;
 
     // 缓存加载的头条广告数据
     public static TTRewardVideoAd rewardAd;
@@ -89,10 +99,6 @@ public class AdBoss {
         is_install = false;
     }
 
-    public static void initParams() {
-
-    }
-
     public static String getRewardResult() {
         String json = "{\"video_play\":" + is_show + ",\"ad_click\":" + is_click + ",\"apk_install\":" + is_install + ",\"verify_status\":" + is_reward + "}";
         if (rewardPromise != null)
@@ -113,6 +119,7 @@ public class AdBoss {
     public static String codeid_splash;
     public static String codeid_splash_tencent;
     public static String codeid_splash_baidu;
+    public static String codeid_splash_youdao;
     public static String codeid_feed;
     public static String codeid_feed_tencent;
     public static String codeid_feed_baidu;
@@ -120,6 +127,7 @@ public class AdBoss {
     public static String codeid_full_video;
     public static String codeid_reward_video;
     public static String codeid_reward_video_tencent;
+    public static String codeid_reward_video_youdao;
 
     public static ReactContext reactContext;
     public static ArrayBlockingQueue<String> myBlockingQueue = new ArrayBlockingQueue<String>(1);
@@ -181,6 +189,11 @@ public class AdBoss {
 //        BaiduManager.init(mContext);
 //        AdView.setAppSid(context, bd_appid);
         // 注意：AdView.setAppsId还有用,被垃圾百度文档搞晕...
+    }
+
+    public static void initYd(Context context) {
+        // 初始化有道智选sdk
+        YoudaoSDK.init(context);
     }
 
 }

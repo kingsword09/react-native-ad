@@ -62,6 +62,7 @@ public class AdManager extends ReactContextBaseJavaModule {
         AdBoss.initTx(reactAppContext, AdBoss.tx_appid);
         AdBoss.bd_appid = options.hasKey("bd_appid") ? options.getString("bd_appid") : AdBoss.bd_appid;
         AdBoss.initBd(reactAppContext, AdBoss.bd_appid);
+        AdBoss.initYd(reactAppContext);
 
         // providers
         AdBoss.splash_provider = options.hasKey("splash_provider") ? options.getString("splash_provider") : "头条";
@@ -72,6 +73,7 @@ public class AdManager extends ReactContextBaseJavaModule {
         AdBoss.codeid_splash = options.hasKey("codeid_splash") ? options.getString("codeid_splash") : AdBoss.codeid_splash;
         AdBoss.codeid_splash_tencent = options.hasKey("codeid_splash_tencent") ? options.getString("codeid_splash_tencent") : AdBoss.codeid_splash_tencent;
         AdBoss.codeid_splash_baidu = options.hasKey("codeid_splash_baidu") ? options.getString("codeid_splash_baidu") : AdBoss.codeid_splash_baidu;
+        AdBoss.codeid_splash_youdao = options.hasKey("codeid_splash_youdao") ? options.getString("codeid_splash_youdao") : AdBoss.codeid_splash_youdao;
         AdBoss.codeid_feed = options.hasKey("codeid_feed") ? options.getString("codeid_feed") : AdBoss.codeid_feed;
         AdBoss.codeid_feed_tencent = options.hasKey("codeid_feed_tencent") ? options.getString("codeid_feed_tencent") : AdBoss.codeid_feed_tencent;
         AdBoss.codeid_feed_baidu = options.hasKey("codeid_feed_baidu") ? options.getString("codeid_feed_baidu") : AdBoss.codeid_feed_baidu;
@@ -79,6 +81,7 @@ public class AdManager extends ReactContextBaseJavaModule {
         AdBoss.codeid_full_video = options.hasKey("codeid_full_video") ? options.getString("codeid_full_video") : AdBoss.codeid_full_video;
         AdBoss.codeid_reward_video = options.hasKey("codeid_reward_video") ? options.getString("codeid_reward_video") : AdBoss.codeid_reward_video;
         AdBoss.codeid_reward_video_tencent = options.hasKey("codeid_reward_video_tencent") ? options.getString("codeid_reward_video_tencent") : AdBoss.codeid_reward_video_tencent;
+        AdBoss.codeid_reward_video_youdao = options.hasKey("codeid_reward_video_youdao") ? options.getString("codeid_reward_video_youdao") : AdBoss.codeid_reward_video_youdao;
     }
 
     /**

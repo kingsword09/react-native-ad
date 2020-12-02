@@ -51,6 +51,12 @@ public class SplashAd extends ReactContextBaseJavaModule {
 			 return;
         }
 
+        if (provider.equals("有道")) {
+            // SDK 初始化
+            AdBoss.initYd(mContext);
+            startYdSplash(AdBoss.codeid_splash_youdao);
+        }
+
         // 默认走穿山甲
 //		AdBoss.init(mContext, appid);
 		startSplash(codeid);
@@ -98,5 +104,18 @@ public class SplashAd extends ReactContextBaseJavaModule {
         // } catch (Exception e) {
         //     e.printStackTrace();
         // }
+    }
+
+    private void startYdSplash(String codeid) {
+        Intent intent = new Intent(mContext, com.haxifang.ad.activities.youdao.BrandSplashActivity.class);
+        try {
+            intent.putExtra("codeid", codeid);
+            final Activity context = getCurrentActivity();
+            context.overridePendingTransition(0, 0); // 不要过渡动画
+            context.startActivityForResult(intent, 10000);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
